@@ -1,6 +1,7 @@
-// src/pages/BoardGameList.js
 import React, { useState, useEffect } from 'react';
 import { searchBoardGames } from '../BoardGameGeekAPI';
+import styles from './ProductList.module.css';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
   const [boardGames, setBoardGames] = useState([]);
@@ -15,18 +16,21 @@ function ProductList() {
   }, [searchQuery]);
 
   return (
-    <div>
-      <h1>Board Game List</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Board Game List</h1>
       <input
+        className={styles.searchInput}
         type="text"
         placeholder="Search board games..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <ul>
+      <ul className={styles.boardGamesList}>
         {boardGames.map((game) => (
-          <li key={game.id}>
-            {game.name} ({game.yearPublished})
+          <li key={game.id} className={styles.boardGamesListItem}>
+            <Link to={`/products/${game.id}`}>
+              {game.name} ({game.yearPublished})
+            </Link>
           </li>
         ))}
       </ul>

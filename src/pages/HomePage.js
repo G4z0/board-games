@@ -1,9 +1,19 @@
 // src/pages/HomePage.js
-import React from 'react';
 import Navbar from '../components/Navbar';
 import './HomePage.css';
+import React, { useState, useEffect } from 'react';
+import { getNewestGames, getBoardGameDetails } from '../BoardGameGeekAPI';
 
 function HomePage() {
+  const [featuredGames, setFeaturedGames] = useState([]);
+
+  useEffect(() => {
+    getNewestGames().then(games => {
+      Promise.all(games.map(game => getBoardGameDetails(game.id)))
+        .then(gameDetails => setFeaturedGames(gameDetails));
+    });
+  }, []);
+  
   return (
     <div className="home-page">
       <Navbar />
@@ -15,9 +25,14 @@ function HomePage() {
         </div>
       </section>
       <section className="featured">
-        <h2 className="featured__title">Featured Games</h2>
+        <h2 className="featured__title">Newest Games</h2>
         <div className="featured__container">
-          {/* Render featured products here */}
+        {featuredGames.map(game => (
+          <div key={game.id} className="featured__game">
+            <img src={game.image} alt={game.name} className="featured__game-image" /> 
+            <h3 className="featured__game-name">{game.name}</h3>
+          </div>
+        ))}
         </div>
       </section>
       <footer className="footer">

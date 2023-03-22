@@ -1,0 +1,56 @@
+/* src/pages/GameDetails.css */
+.gameDetails {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.gameImageContainer {
+  flex: 1;
+  max-width: 500px;
+}
+
+.gameImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gameInfoContainer {
+  flex: 1;
+  max-width: 500px;
+  background-color: rgba(68, 68, 68, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.gameName {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.gameYear,
+.gamePlayers,
+.gamePlayingTime,
+.gamePrice {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.gameDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
