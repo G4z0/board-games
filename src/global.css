@@ -1,0 +1,12 @@
+/* src/global.css */
+body {
+    background-image: url('/src/components/317597.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* This keeps the background image fixed in the same place */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
