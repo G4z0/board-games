@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { searchBoardGames } from '../BoardGameGeekAPI';
+import { searchBoardGames, getMostRatedGames } from '../BoardGameGeekAPI';
 import styles from './ProductList.module.css';
 import { Link } from 'react-router-dom';
 
@@ -11,9 +11,10 @@ function ProductList() {
     if (searchQuery.trim()) {
       searchBoardGames(searchQuery).then((results) => setBoardGames(results));
     } else {
-      setBoardGames([]);
+      getMostRatedGames().then((results) => setBoardGames(results));
     }
   }, [searchQuery]);
+  
 
   return (
     <div className={styles.container}>

@@ -23,6 +23,13 @@ export async function getNewestGames(limit = 4) {
   }));
   return games;
 }
+export const getMostRatedGames = async () => {
+  const response = await fetch(
+    'https://api.boardgameatlas.com/api/search?order_by=users_rated&client_id=YOUR_CLIENT_ID'
+  );
+  const data = await response.json();
+  return data.games.map(mapGame);
+};
 
 export function decodeEntities(encodedString) {
   const div = document.createElement('div');

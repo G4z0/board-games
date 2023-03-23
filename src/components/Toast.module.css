@@ -1,0 +1,21 @@
+.toast {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: rgba(75, 178, 75, 0.9);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: all 0.3s ease-out;
+  }
+  
+  .toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  

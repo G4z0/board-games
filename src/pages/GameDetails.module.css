@@ -4,7 +4,17 @@
   margin: 0 auto;
   padding: 2rem;
 }
-
+.addToCartButton {
+  background-color: #1d3557;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0px
+}
 .contentWrapper {
   display: flex;
   flex-wrap: wrap;

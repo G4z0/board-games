@@ -3,20 +3,30 @@ import { useParams } from 'react-router-dom';
 import { getBoardGameDetails } from '../BoardGameGeekAPI';
 import Navbar from '../components/Navbar';
 import styles from './GameDetails.module.css';
+import { useCart } from '../contexts/CartContext';
 
 function GameDetailsPage() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
+  const [price, setPrice] = useState();
+  const { addToCart } = useCart();
 
   useEffect(() => {
-    getBoardGameDetails(id).then((game) => setGame(game));
+    getBoardGameDetails(id).then((game) => {
+      setGame(game);
+      setPrice((Math.random() * (100 - 20) + 20).toFixed(2));
+    });
   }, [id]);
 
   if (!game) {
     return null;
   }
 
-  const price = (Math.random() * (100 - 20) + 20).toFixed(2);
+
+  const handleAddToCart = () => {
+    console.log("Adding product to cart:", { ...game, price });
+    addToCart({ ...game, price });
+  };
 
   return (
     <div>
@@ -34,11 +44,14 @@ function GameDetailsPage() {
           <p className={styles.gamePlayingTime}>Playing Time: {game.playingTime} minutes</p>
           <p className={styles.gamePrice}>Price: ${price}</p>
           <p className={styles.gameDescription}>{game.description}</p>
+          <button onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
     </div>
     </div>
   );
 }
+
+
 
 export default GameDetailsPage;
