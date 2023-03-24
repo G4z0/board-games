@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { searchBoardGames, getMostRatedGames } from '../BoardGameGeekAPI';
+import { searchBoardGames } from '../BoardGameGeekAPI';
 import styles from './ProductList.module.css';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function ProductList() {
   const [boardGames, setBoardGames] = useState([]);
@@ -11,12 +12,14 @@ function ProductList() {
     if (searchQuery.trim()) {
       searchBoardGames(searchQuery).then((results) => setBoardGames(results));
     } else {
-      getMostRatedGames().then((results) => setBoardGames(results));
-    }
+     } setBoardGames([]);
   }, [searchQuery]);
   
 
   return (
+    <div>
+    <Navbar />
+   
     <div className={styles.container}>
       <h1 className={styles.title}>Board Game List</h1>
       <input
@@ -35,6 +38,7 @@ function ProductList() {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { CartProvider } from './contexts/CartContext';
 ReactDOM.render(
   <React.StrictMode>
     <CartProvider>
-      <App />s
+      <App />
     </CartProvider>
   </React.StrictMode>,
   document.getElementById('root')
