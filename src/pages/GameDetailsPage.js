@@ -22,7 +22,6 @@ function GameDetailsPage() {
     return null;
   }
 
-
   const handleAddToCart = () => {
     console.log("Adding product to cart:", { ...game, price });
     addToCart({ ...game, price });
@@ -44,7 +43,7 @@ function GameDetailsPage() {
           <p className={styles.gamePlayingTime}>Playing Time: {game.playingTime} minutes</p>
           <p className={styles.gamePrice}>Price: ${price}</p>
           <p className={styles.gameDescription}>{game.description}</p>
-          <button onClick={handleAddToCart}>Add to Cart</button>
+          <button className={styles.addToCartButton} onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
     </div>

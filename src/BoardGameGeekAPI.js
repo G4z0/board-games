@@ -13,7 +13,7 @@
       yearPublished: item.yearpublished ? parseInt(item.yearpublished[0].$.value, 10) : null,
     }));
   }
-  export async function getNewestGames(limit = 4) {
+  export async function getNewestGames(limit = 10) {
     const response = await fetch(`${BOARDGAME_API_URL}/hot?type=boardgame`);
     const xml = await response.text();
     const json = await parseStringPromise(xml);

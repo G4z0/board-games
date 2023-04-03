@@ -13,7 +13,6 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar__container">
         <a href="/" className="navbar__logo">
-          BoardGameStore
         </a>
         <div className="navbar__menu-toggle" onClick={toggleMobileMenu}>
           <span className="navbar__menu-toggle-line"></span>

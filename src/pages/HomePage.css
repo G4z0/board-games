@@ -3,6 +3,9 @@
   flex-direction: column;
 }
 
+body{
+  background-image: url("./hero3.png");
+}
 .hero {
   color: #fff;
   height: 80vh;
@@ -12,6 +15,7 @@
   text-align: center;
   background-size: cover;
   background-position: center;
+  
 }
 
 .hero__content {
@@ -67,22 +71,31 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+  
 }
 
 .featured__game {
-  width: 200px;
+  width: 250px;
+  height: 350px;
   background-color: #ecf0f1;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; 
 }
 
 .featured__game-image {
   width: 100%;
-  height: auto;
+  height: 60%;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+.game-info {
+  height: 80px; /* Adjust this height as needed */
+  overflow: hidden;
 }
 
 .featured__game-name {

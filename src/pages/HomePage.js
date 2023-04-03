@@ -1,4 +1,3 @@
-// src/pages/HomePage.js
 import Navbar from '../components/Navbar';
 import './HomePage.css';
 import React, { useState, useEffect } from 'react';
@@ -30,7 +29,9 @@ function HomePage() {
         {featuredGames.map(game => (
           <div key={game.id} className="featured__game">
             <img src={game.image} alt={game.name} className="featured__game-image" /> 
+            <div className="game-info">
             <h3 className="featured__game-name">{game.name}</h3>
+            </div>
           </div>
         ))}
         </div>
